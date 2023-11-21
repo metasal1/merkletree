@@ -12,7 +12,7 @@ const wallet = new Uint8Array([
  166, 117, 110,   2,   5, 195, 158, 222,  95
 ])
 
-const umi = createUmi('https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c')
+const umi = createUmi(`https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c`)
 const myKeypair = umi.eddsa.createKeypairFromSecretKey(wallet);
 const myKeypairSigner = createSignerFromKeypair("eddsa",myKeypair);
 umi.use(keypairIdentity(myKeypairSigner));
@@ -24,6 +24,9 @@ const builder = await createTree(umi, {
   merkleTree,
   maxDepth: 3,
   maxBufferSize: 8,
+  treeCreator: 'orczfm7gSSaAemCoUnATBGAMhTTnM9wKrjmiHFp1YHx',
+  public: true,
+
 })
 const build = await builder.sendAndConfirm(umi)
 const sig = base58.encode(build.signature)
