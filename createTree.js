@@ -24,7 +24,6 @@ const builder = await createTree(umi, {
   merkleTree,
   maxDepth: 3,
   maxBufferSize: 8,
-  treeCreator: 'orczfm7gSSaAemCoUnATBGAMhTTnM9wKrjmiHFp1YHx',
   public: true,
 
 })

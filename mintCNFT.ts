@@ -1,7 +1,6 @@
 import { mintToCollectionV1, mplBubblegum } from '@metaplex-foundation/mpl-bubblegum'
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
 import { createSignerFromKeypair, keypairIdentity, none, publicKey } from '@metaplex-foundation/umi'
-import base58 from 'bs58'
 
 const wallet = new Uint8Array([
     54, 10, 207, 157, 72, 43, 119, 86, 102, 64, 155,
@@ -38,8 +37,3 @@ const minted = await mintToCollectionV1(umi, {
 }).sendAndConfirm(umi)
 
 console.log('minted', minted)
-
-const sig = await minted.signature
-
-
-console.log('sig', base58.encode(sig))

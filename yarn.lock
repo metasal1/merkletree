@@ -42,7 +42,7 @@
     bn.js "^5.2.0"
     debug "^4.3.3"
 
-"@metaplex-foundation/digital-asset-standard-api@^1.0.0-alpha.0":
+"@metaplex-foundation/digital-asset-standard-api@^1.0.0", "@metaplex-foundation/digital-asset-standard-api@^1.0.0-alpha.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@metaplex-foundation/digital-asset-standard-api/-/digital-asset-standard-api-1.0.0.tgz"
   integrity sha512-RShZFkLa3SKl8Rs13okG9vG3N3ZfRrcHBImEEds3Rb8mghHWGU3IL2+X9FdIRMnE44jNJ3vZlVeEBU3kIZPBvw==
@@ -189,7 +189,7 @@
   dependencies:
     buffer "^6.0.3"
 
-"@metaplex-foundation/umi@*", "@metaplex-foundation/umi@^0.8.10", "@metaplex-foundation/umi@^0.8.2", "@metaplex-foundation/umi@^0.8.9":
+"@metaplex-foundation/umi@^0.8.10", "@metaplex-foundation/umi@^0.8.2", "@metaplex-foundation/umi@^0.8.9":
   version "0.8.10"
   resolved "https://registry.npmjs.org/@metaplex-foundation/umi/-/umi-0.8.10.tgz"
   integrity sha512-iGuGIfJh2+YFvUIkZ0nB/69EsQcaoq89DDPRPYvPBtOunfv8TH8SNrwcsXHlp9aBtn5FGKCPx3V3X/eurB32Fg==
