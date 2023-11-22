@@ -6,9 +6,9 @@ import { dasApi } from '@metaplex-foundation/digital-asset-standard-api'
 const umi = createUmi(`https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c`)
 umi.use(dasApi())
 
-const merkleTree = publicKey('F7zzfhVJg3aD5hoMoDYwWTZhRiARaAyC4RC3P922LhV7')
+const merkleTree = publicKey('44Qsz9dZ2mXrzea3zXomBg9FcqaMqLJmMKoJXpGvrgUe')
 
-const leafIndex = 300; // Initialize leafIndex with a value
+const leafIndex = 0; // Initialize leafIndex with a value
 
 const [assetId, bump] = await findLeafAssetIdPda(umi, {
     merkleTree,
@@ -17,3 +17,9 @@ const [assetId, bump] = await findLeafAssetIdPda(umi, {
 
 console.log('Asset ID: ', assetId)
 console.log('Bump: ', bump)
+
+const rpcAsset = await umi.rpc.getAsset(assetId)
+console.log('Asset: ', rpcAsset)
+
+const rpcAssetProof = await umi.rpc.getAssetProof(assetId)
+console.log('Asset Proof: ', rpcAssetProof)

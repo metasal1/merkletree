@@ -18,8 +18,8 @@ const myKeypairSigner = createSignerFromKeypair({ eddsa: umi.eddsa }, myKeypair)
 umi.use(keypairIdentity(myKeypairSigner));
 umi.use(mplBubblegum())
 
-const merkleTree = 'F7zzfhVJg3aD5hoMoDYwWTZhRiARaAyC4RC3P922LhV7'
-const collection = '3L156kAxj2Yuij54YFMKKSu8gsvKk84Pc7pdFJ4ifDVG'
+const merkleTree = '44Qsz9dZ2mXrzea3zXomBg9FcqaMqLJmMKoJXpGvrgUe'
+const collection = '9BWnc3WvKo5nNp3MQhprWWEssMFNaEvvo69jzoPEFADY'
 
 
 const minted = await mintToCollectionV1(umi, {
@@ -27,7 +27,7 @@ const minted = await mintToCollectionV1(umi, {
     merkleTree: publicKey(merkleTree),
     collectionMint: publicKey(collection),
     metadata: {
-        name: 'My Compressed NFT',
+        name: 'My Decompressed NFT',
         uri: 'https://example.com/my-cnft.json',
         sellerFeeBasisPoints: 500, // 5%
         collection: {key : publicKey(collection), verified: true},

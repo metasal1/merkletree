@@ -20,7 +20,7 @@ const collectionMint = generateSigner(umi)
 
 const coll = await createNft(umi, {
   mint: collectionMint,
-  name: 'My Collection',
+  name: 'Decompressed Collection',
   uri: 'https://example.com/my-collection.json',
   sellerFeeBasisPoints: percentAmount(5.5), // 5.5%
   isCollection: true,

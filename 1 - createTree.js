@@ -25,7 +25,7 @@ const builder = await createTree(umi, {
   maxDepth: 3,
   maxBufferSize: 8,
   public: true,
-
+  decompress: true
 })
 const build = await builder.sendAndConfirm(umi)
 const sig = base58.encode(build.signature)
