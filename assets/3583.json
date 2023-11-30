@@ -1,0 +1,65 @@
+{
+  "name": "Pet Legends Kin Battle Pet #3583",
+  "symbol": "PLBPKIN",
+  "description": "Playable Battle Pet Utility NFT in the game Pet Legends. Learn more at https://petlegends.com",
+  "image": "https://arweave.net/X1TrdzX1Ie6gxITNWkVld27sfVGU7_GlTWExrxN1FM8",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Pet Legends Battle Pet"
+    },
+    {
+      "trait_type": "Level",
+      "value": "0"
+    },
+    {
+      "trait_type": "Community",
+      "value": "KIN"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Dark",
+      "value": "30"
+    },
+    {
+      "trait_type": "Rock",
+      "value": "0"
+    },
+    {
+      "trait_type": "Energy",
+      "value": "0"
+    },
+    {
+      "trait_type": "Light",
+      "value": "30"
+    },
+    {
+      "trait_type": "Fire",
+      "value": "0"
+    },
+    {
+      "trait_type": "Ice",
+      "value": "0"
+    },
+    {
+      "trait_type": "Sky",
+      "value": "0"
+    },
+    {
+      "trait_type": "Metal",
+      "value": "0"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/X1TrdzX1Ie6gxITNWkVld27sfVGU7_GlTWExrxN1FM8",
+        "type": "image/png"
+      }
+    ],
+    "category": null
+  }
+}

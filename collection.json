@@ -1,0 +1,27 @@
+// https://docs.metaplex.com/developer-tools/sugar/guides/configuration
+{
+    "price": 0.1,
+    "number": 69420,
+    "symbol": "PLBPKIN",
+    "sellerFeeBasisPoints": 500,
+    "creators": [
+        {
+            "address": "cre3gf63LHQofMo3uZE3FQxi7YvetrVpPc3SU65YxiJ",
+            "share": 100
+        }
+    ],
+    "gatekeeper": null,
+    "solTreasuryAccount": "treRAn5rD2xPQje3toKPr6JjqMbFfrZg7Z1F9hEH5DP",
+    "splTokenAccount": null,
+    "splToken": null,
+    "goLiveDate": "2022-04-22T00:00:00Z",
+    "endSettings": null,
+    "whitelistMintSettings": null,
+    "hiddenSettings": null,
+    "uploadMethod": "bundlr",
+    "awsS3Bucket": null,
+    "nftStorageAuthToken": null,
+    "shdwStorageAccount": null,
+    "retainAuthority": true,
+    "isMutable": true
+}

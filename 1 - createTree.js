@@ -1,34 +1,34 @@
-import { generateSigner, createSignerFromKeypair, keypairIdentity } from '@metaplex-foundation/umi'
+import { generateSigner, createSignerFromKeypair, keypairIdentity, publicKey } from '@metaplex-foundation/umi'
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
 import { createTree, mplBubblegum } from '@metaplex-foundation/mpl-bubblegum'
 import base58 from 'bs58'
 
-const wallet = new Uint8Array([
-  54,  10, 207, 157,  72,  43, 119,  86, 102,  64, 155,
-   8, 215, 251,  10, 193, 222, 251,  34,  93,  16,  17,
- 176, 145, 169, 173, 200,  76,  92, 129, 185, 107,   9,
- 164, 203, 227, 213, 189,  66, 151, 143, 184,  39,  19,
- 105, 138,  12, 224, 186, 178, 141, 240, 205, 171,  24,
- 166, 117, 110,   2,   5, 195, 158, 222,  95
-])
+const umi = createUmi('https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c')
 
-const umi = createUmi(`https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c`)
-const myKeypair = umi.eddsa.createKeypairFromSecretKey(wallet);
-const myKeypairSigner = createSignerFromKeypair("eddsa",myKeypair);
-umi.use(keypairIdentity(myKeypairSigner));
+const wallet = new Uint8Array([254, 149, 24, 6, 64, 64, 115, 121, 242, 159, 191, 89, 133, 147, 24, 20, 187, 156, 121, 161, 238, 138, 41, 146, 214, 226, 121, 101, 218, 67, 15, 250, 12, 53, 37, 169, 219, 170, 175, 249, 223, 0, 140, 96, 13, 239, 51, 105, 174, 4, 18, 98, 54, 166, 38, 236, 71, 232, 246, 192, 170, 199, 57, 154])
+const merkleTreeWallet = new Uint8Array([180, 20, 141, 111, 23, 156, 197, 182, 163, 103, 61, 155, 43, 173, 95, 64, 212, 113, 119, 223, 27, 56, 144, 208, 163, 228, 161, 240, 54, 25, 208, 69, 13, 72, 16, 192, 101, 0, 16, 249, 168, 127, 252, 251, 183, 108, 8, 123, 114, 231, 64, 148, 221, 96, 161, 189, 176, 54, 120, 145, 171, 49, 211, 172])
+
+const payer = umi.eddsa.createKeypairFromSecretKey(wallet);
+const payerSigner = createSignerFromKeypair("eddsa", payer);
+
+// const merkleTreeKeypair = umi.eddsa.createKeypairFromSecretKey(merkleTreeWallet);
+// const merkleTree = createSignerFromKeypair(umi, merkleTreeKeypair);
+umi.use(keypairIdentity(payerSigner));
 umi.use(mplBubblegum())
 
 const merkleTree = generateSigner(umi)
 
+console.log('merkleTree', merkleTree)
+
 const builder = await createTree(umi, {
   merkleTree,
-  maxDepth: 3,
-  maxBufferSize: 8,
-  public: true,
-  decompress: true
+  maxDepth: 13,
+  maxBufferSize: ,
+  canopyDepth: 11
 })
+
 const build = await builder.sendAndConfirm(umi)
 const sig = base58.encode(build.signature)
 
-console.log('sig', sig)
 console.log('tree', merkleTree.publicKey)
+console.log('sig', sig)

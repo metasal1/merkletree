@@ -2,27 +2,22 @@ import { generateSigner, createSignerFromKeypair, keypairIdentity, percentAmount
 import { createNft, mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata'
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
 
-const wallet = new Uint8Array([
-    54, 10, 207, 157, 72, 43, 119, 86, 102, 64, 155,
-    8, 215, 251, 10, 193, 222, 251, 34, 93, 16, 17,
-    176, 145, 169, 173, 200, 76, 92, 129, 185, 107, 9,
-    164, 203, 227, 213, 189, 66, 151, 143, 184, 39, 19,
-    105, 138, 12, 224, 186, 178, 141, 240, 205, 171, 24,
-    166, 117, 110, 2, 5, 195, 158, 222, 95])
+const wallet = new Uint8Array([254, 149, 24, 6, 64, 64, 115, 121, 242, 159, 191, 89, 133, 147, 24, 20, 187, 156, 121, 161, 238, 138, 41, 146, 214, 226, 121, 101, 218, 67, 15, 250, 12, 53, 37, 169, 219, 170, 175, 249, 223, 0, 140, 96, 13, 239, 51, 105, 174, 4, 18, 98, 54, 166, 38, 236, 71, 232, 246, 192, 170, 199, 57, 154])
 
 const umi = createUmi(`https://devnet.helius-rpc.com/?api-key=85b1b62b-6788-41cd-8979-13152d8ebf4c`)
 const myKeypair = umi.eddsa.createKeypairFromSecretKey(wallet);
-const myKeypairSigner = createSignerFromKeypair("eddsa",myKeypair);
+console.log('myKeypair', myKeypair.publicKey.toString())
+const myKeypairSigner = createSignerFromKeypair("eddsa", myKeypair);
 umi.use(keypairIdentity(myKeypairSigner));
 umi.use(mplTokenMetadata())
 
 const collectionMint = generateSigner(umi)
 
-const coll = await createNft(umi, {
+const coll = createNft(umi, {
   mint: collectionMint,
-  name: 'Decompressed Collection',
-  uri: 'https://example.com/my-collection.json',
-  sellerFeeBasisPoints: percentAmount(5.5), // 5.5%
+  name: 'Pet Legends ',
+  uri: 'https://petlegends.com/collection/metadata.json',
+  sellerFeeBasisPoints: percentAmount(10),
   isCollection: true,
 }).sendAndConfirm(umi)
 
